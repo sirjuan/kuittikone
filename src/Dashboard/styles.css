@@ -1,0 +1,11 @@
+.card {
+  background-color: rgba(255,255,255,0.2) !important;
+}
+
+.table thead th {
+    border-bottom: none !important;
+}
+
+.table th, .table td {
+    border-top: none !important;
+}
