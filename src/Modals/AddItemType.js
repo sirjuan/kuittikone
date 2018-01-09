@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form'
 import { renderSelectItem } from '../utils/form'
 import { jsonify } from '../utils'
-import { addItemType } from '../Receipt/actions'
-import { toggleModal } from './actions';
+import { addItemType, toggleModal } from 'store/actions'
 
 class AddItemType extends React.Component {
 

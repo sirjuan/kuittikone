@@ -3,9 +3,9 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const cloudinary = require('cloudinary');
 const Purchase = require('../models/purchase');
 const fs = require('fs')
-const formidable = require('express-formidable');
 
 const model = require('../models/receipt');
+const Shop = require('../models/shop')
 const path = '/receipts'
 const modelName = 'Receipt'
 
@@ -21,12 +21,17 @@ const createPurchaseList = ({items = [], receipt, res}) => (
 router.route(path)
 .get((req, res) => model.find(req.query, (err, result) => err ? res.send(err) : res.json(result)))
 .post(async(req, res) => {
-  console.log(req.body.receipt)
-  const itAlreadyExists = await model.find({ date: req.body.receipt.date })
+  console.log(req.body)
+  const { receipt = {} } = req.body;
+  const itAlreadyExists = await model.find({ date: receipt.date })
     .then(doc => doc.length > 0)
     .catch(e => res.send(e));
   if(itAlreadyExists) return alreadyExists(res, 'Receipt')
   else {
+    if (!receipt.shop._id) {
+      const shop = new Shop({name: receipt.shop.name, type: receipt.shop.type._id})
+      shop.save((err, result) => { receipt.shop = result })
+    }
     const receiptId = new ObjectId();
     await createPurchaseList({items: req.body.purchases, receiptId, res});
     createModelAndSave({model, body: { _id: receiptId, ...req.body.receipt}, res})

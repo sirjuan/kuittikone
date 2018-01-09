@@ -2,8 +2,8 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form'
-import { jsonify, handleFetchError } from '../utils'
-import { getShopTypes } from '../Receipt/actions'
+import { jsonify, handleFetchError } from 'utils'
+import { getShopTypes } from 'store/actionCreators'
 
 class AddItemType extends React.PureComponent {
 

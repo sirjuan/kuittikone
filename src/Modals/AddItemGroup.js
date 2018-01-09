@@ -2,8 +2,8 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form'
-import { addItemGroup } from '../Receipt/actions';
-import { jsonify } from '../utils'
+import { addItemGroup } from 'store/actions';
+import { jsonify } from 'utils'
 
 class AddItemGroup extends React.Component {
 

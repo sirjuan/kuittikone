@@ -1,3 +1,3 @@
-import AddReceipt from './AddReceipt'
+import Modal from './Modal'
 
-export default AddReceipt;
+export default Modal;

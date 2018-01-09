@@ -1,0 +1,70 @@
+.modal-body {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.table th, .table td {
+    padding: 0.5rem !important;
+}
+
+.Select-input {
+    height: 14px !important;
+}
+
+.Select-input > input {
+  padding: 0;
+}
+
+.Select-control {
+  height: 14px !important;
+}
+
+.Select-placeholder, .Select--single > .Select-control .Select-value {
+  line-height: 14px !important;
+}
+
+.Select {
+  margin-top: -2px;
+  margin-bottom: -2px;
+  font-size: 0.7rem;
+}
+
+.modal-body .btn {
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+
+.modal-title {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.modal-header {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.modal-title span {
+  font-size: 1rem;
+  font-weight: 100;
+  margin-left: 10px;
+}
+
+.modal-title a {
+  font-size: 1rem;
+  float: right;
+  color: blue !important;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.modal-title a:hover {
+  color: black;
+}
+
+.modal-title .btn {
+  float: right;
+  margin-right: 10px;
+  margin-top: 5px;
+}

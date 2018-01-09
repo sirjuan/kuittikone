@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { dispatch } from '../store';
-
-import { toggleModal } from './actions';
+import { dispatch } from 'store';
+import { toggleModal } from 'store/actions';
 
 import AddReceipt from './AddReceipt'
 import AddItemGroup from './AddItemGroup';

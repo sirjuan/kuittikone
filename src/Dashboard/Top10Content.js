@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
-import { Fields } from 'redux-form'
-import { renderItemTypeSelect } from '../utils/form'
-import { getTop10Items } from './actions'
+import { getTop10Items } from 'store/actionCreators'
 import { Table } from 'reactstrap'
-import { dispatch } from '../store'
-
-
-const formatNumber = i => i % 1 === 0 ? i : i.toFixed(2);
+import { dispatch } from 'store'
+import { formatNumber } from '../utils'
 
 class Dashboard extends Component {
 

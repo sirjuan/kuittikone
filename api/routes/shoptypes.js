@@ -1,4 +1,5 @@
 const model = require('../models/shopType');
+const { alreadyExists, createModelAndSave } = require('./utils');
 const path = '/shoptypes';
 const modelName = 'Shop type';
 

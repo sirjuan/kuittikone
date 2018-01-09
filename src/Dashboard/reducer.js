@@ -1,4 +1,4 @@
-import { ADD_TOP10_ITEMS } from './actions'
+import { ADD_TOP10_ITEMS } from 'store/constants'
 
 export const top10ItemsReducer = (state = [], action) => {
   switch (action.type) {

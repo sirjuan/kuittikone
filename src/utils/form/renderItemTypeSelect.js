@@ -38,6 +38,7 @@ const renderSelectItem = (props) => {
           value={value}
           options={options}
           onChange={handleChange}
+          clearable={false}
           placeholder='Valitse...'
         />
     </div>
