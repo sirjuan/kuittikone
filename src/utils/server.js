@@ -25,8 +25,9 @@ export const postData = ({ endpoint, values }) => {
   return fetch(url, options).then(handleFetchError)
 }
 
+const getUrl = (endpoint) => `${API_URL}${endpoint}`
+
 export const post = ({ endpoint, values }) => {
-  const url = `${API_URL}${endpoint}`;
   const isFormData = values instanceof FormData
   const body = isFormData ? values : JSON.stringify(values)
   const headers = {
@@ -38,12 +39,25 @@ export const post = ({ endpoint, values }) => {
     method: 'POST',
     body
   };
-  return fetch(url, options).then(handleFetchError)
+  return fetch(getUrl(endpoint), options).then(handleFetchError)
+}
+
+export const put = ({endpoint, values}) => {
+  const options = {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'PUT',
+    body: JSON.stringify(values)
+  }
+  return fetch(getUrl(endpoint), options)
+    .then(jsonify)
+    .catch(handleError)
 }
 
 export const get = (endpoint, options = {}) => {
-  const url = `${API_URL}${endpoint}`
-  return fetch(url, options)
+  return fetch(getUrl(endpoint), options)
     .then(handleFetchError)
     .then(jsonify)
     .catch(handleError)
