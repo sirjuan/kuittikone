@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Button, Table } from 'reactstrap';
 import { toggleModal } from 'store/actions'
+import { dispatch } from 'store'
 import renderItem from './renderItem';
 
 class ItemTable extends Component {
 
-  toggleModal = () => this.props.dispatch(toggleModal('addItemType'));
+  toggleModal = () => dispatch(toggleModal('addItemType'));
 
   render = () => {
     const { itemTypes, items, total, classes} = this.props;

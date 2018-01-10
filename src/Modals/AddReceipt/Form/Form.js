@@ -67,7 +67,7 @@ class AddReceiptForm extends React.Component  {
                   name="items"
                   component={ItemTable}
                   itemTypes={itemTypes}
-                  props={{items, total, classes, handleNewOption, modal:'addItemType'}}
+                  props={{items, total, classes, modal:'addItemType'}}
                 />
               </Col>
             </Row>
