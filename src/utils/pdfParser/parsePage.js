@@ -1,4 +1,8 @@
-import { DATE_CHECK, DASHES, SPACES } from './constants';
+// @flow
+
+import { SPACES } from './constants';
+import evaluateConditions from './evaluateConditions';
+import { Item, ReceiptAccumulator } from './types';
 import {
   handleBonus,
   handleCampaignItems,
@@ -10,23 +14,16 @@ import {
   handleTotal
 } from './handlers'
 
-const getConditions = ({ date, bonus, line, splitLine, index, itemList, item, receiptType }) => ({
-   isItemListEnd: line.match(DASHES),
-   isDateLine: !date && line.match(DATE_CHECK[receiptType]) !== null,
-   isCampaignStartLine: line.startsWith('S-Etu kampanja'),
-   isShopNameLine: index === 0, // first line should be shop name
-   isTotalLine: splitLine.length === 2 && splitLine[0].toUpperCase() === 'YHTEENSÄ',
-   isBonusLine: !bonus && (line.includes('Bonukseen kirjattu') || line.includes('Bonusostoihin kirjattu')),
-   isItemLine: itemList && item.width >= 192,
-   isMultiplicationLine: itemList && item.width < 192,
-   isDiscountLine: itemList && line.startsWith('%') && line.endsWith('-'),
-})
+/***************** This functions parses pdf into receipt *******************/
+const parsePage = (lines: { items: Item[] }) => {
 
-const parsePage = lines => {
-  let itemList = false;
-  let campaingItems = false;
-  let receiptType = 'shop';
-  return lines.items.reduce((acc, item, index) => {
+  // Init
+  let itemList: boolean = false;
+  let campaingItems: boolean = false;
+  let receiptType: string = 'shop';
+  const init: ReceiptAccumulator = { items: {}, itemNames: [] };
+
+  return lines.items.reduce((acc, item: Item, index: number) => {
 
     if (item.width === 0) return acc; // Ignore empty lines
 
@@ -58,7 +55,7 @@ const parsePage = lines => {
       isMultiplicationLine,
       isItemLine,
       isDiscountLine
-    } = getConditions(conditionParams);
+    } = evaluateConditions(conditionParams);
 
     /**************************************** CONDITION HANDLERS **********************************************/
 
@@ -88,7 +85,7 @@ const parsePage = lines => {
 
     return acc;
 
-  }, { items: {}, itemNames: [] })
+  }, init)
 };
 
 export default parsePage;

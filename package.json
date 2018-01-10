@@ -31,6 +31,7 @@
     "express-formidable": "^1.0.0",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.5",
+    "flow-bin": "^0.63.1",
     "foreman": "^2.0.0",
     "formidable": "^1.1.1",
     "fs": "0.0.1-security",
@@ -71,7 +72,8 @@
     "start": "NODE_PATH=src/ node scripts/start.js",
     "start-dev": "nf start -p 3000",
     "build": "NODE_PATH=src/ node scripts/build.js",
-    "test": "NODE_PATH=src/ node scripts/test.js --env=jsdom"
+    "test": "NODE_PATH=src/ node scripts/test.js --env=jsdom",
+    "flow": "flow"
   },
   "devDependencies": {
     "redux-devtools": "^3.4.1",
@@ -111,7 +113,10 @@
       "node"
     ]
   },
-  "moduleDirectories": ["node_modules", "src"],
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
   "babel": {
     "presets": [
       "react-app"
