@@ -29,7 +29,8 @@ Currently Kuittikone is a web app that:
   
 ## How to install and run (development)
 
-```git clone git@github.com:sirjuan/kuittikone.git
+```
+git clone git@github.com:sirjuan/kuittikone.git
 cd kuittikone
 npm install
 npm run start-dev
