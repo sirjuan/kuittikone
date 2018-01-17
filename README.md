@@ -26,6 +26,19 @@ Currently Kuittikone is a web app that:
   - etc.
 - Implement a way to manually enter a receipt by other vendors
 - Maybe some playing with OCR
+
+## Technologies used
+
+- [React](https://reactjs.org/)
+- [Create React App](https://github.com/facebookincubator/create-react-app)
+- [Redux](https://redux.js.org/) ([Redux-Thunk](https://github.com/gaearon/redux-thunk))
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Mongoose](http://mongoosejs.com/)
+- [PDF.js](https://mozilla.github.io/pdf.js/)
+- Etc.
+
+
   
 ## How to install and run (development)
 
